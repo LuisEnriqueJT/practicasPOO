@@ -8,6 +8,17 @@
 		public $dorsal;
 		public $goles=0;
 
+		//Constructor: 
+		public function __construct($nombre, $apellido, $apodo, $equipo, $posicion, $dorsal){
+			$this->nombre = $nombre;
+			$this->apellido = $apellido;
+			$this->apodo = $apodo;
+			$this->equipo = $equipo;
+			$this->posicion = $posicion; 
+			$this->dorsal = $dorsal;
+			$this->goles = 0;
+		}
+
 		public function setNombre($nombre){
 			$this->nombre = $nombre;
 		}
@@ -70,6 +81,19 @@
 		}
 	}
 
+	$cr7 = new Futbolista("Cristiano","Ronaldo","El bicho","Manchester United","Delantero",7);
+	echo "<br>Goles de ".$cr7->getNombre()." ".$cr7->getApellido()." en el presente torneo: ".$cr7->getGoles();
+	$cr7->anotarGol();
+	$cr7->anotarGol();
+	$cr7->anotarGol();
+	$cr7->anotarGol();
+	$cr7->anotarGol();
+	$cr7->anotarGol();
+
+	echo "<br>Goles de ".$cr7->getNombre()." ".$cr7->getApellido()." en el presente torneo: ".$cr7->getGoles();
+
+
+/*	:::::: Video 220: CLASES, ATRIBUTOS Y METODOS ::::::::::: 
 	$cr7 = new Futbolista();
 	$cr7->setNombre("Cristiano");
 	$cr7->setApellido("Ronaldo");
@@ -86,7 +110,7 @@
 	$cr7->anotarGol();
 	$cr7->anotarGol();
 
-	echo "<br>";
+	echo "<br>"; 
 	echo "Goles de ".$cr7->getNombre()." ".$cr7->getApellido()." en el presente torneo: ".$cr7->getGoles();
 
 
@@ -107,4 +131,6 @@
 	
 	echo "Goles de ".$lm10->getNombre()." ".$lm10->getApellido()." en el presente torneo: ".$lm10->getGoles();
 
+	var_dump($cr7); 
+*/
 ?>
