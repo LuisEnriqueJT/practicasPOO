@@ -6,7 +6,9 @@
 		public $equipo;
 		public $posicion;
 		public $dorsal;
-		public $goles=0;
+		public $goles;
+		public $tamarillas;
+		public $trojas;
 
 		//Constructor: 
 		public function __construct($nombre, $apellido, $apodo, $equipo, $posicion, $dorsal){
@@ -17,6 +19,8 @@
 			$this->posicion = $posicion; 
 			$this->dorsal = $dorsal;
 			$this->goles = 0;
+			$this->tamarillas=0;
+			$this->trojas=0;
 		}
 
 		public function setNombre($nombre){
@@ -75,22 +79,65 @@
 			return $this->goles;
 		}
 
+
+		public function setTamarillas($tamarillas){
+			$this->tamarillas = $tamarillas;
+		}
+
+		public function getTamarillas(){
+			return $this->tamarillas;
+		}
+
+		public function setTrojas($trojas){
+			$this->trojas = $trojas;
+		}
+
+		public function getTrojas(){
+			return $this->trojas;
+		}
+
+		public function amonestar(){
+			echo "<br>Amonestación para ".$this->nombre." ".$this->apellido;
+			$this->tamarillas++;
+			if($this->tamarillas==2){
+				$this->trojas++;
+			}
+		}
+
+		public function expulsar(){			
+			$this->trojas++;
+		}
+
 		public function anotarGol(){
 			echo "<br>Goooool de ".$this->nombre." ".$this->apellido;
 			$this->goles++; 
 		}
+
+		public function imprimirDatos(){
+			$mostrar = "<br><br>:::::Datos del partido:::::::<br>";
+			$mostrar.= "<strong> Jugador: </strong>".$this->nombre." ".$this->apellido;
+			$mostrar.=" #".$this->dorsal;
+			$mostrar.="<br> '".$this->apodo."'";
+			$mostrar.="<br><strong>Posición: </strong>".$this->posicion;
+			$mostrar.="<br>Termina el partido con ".$this->goles." goles<br>";
+			$mostrar.=$this->tamarillas." tarjetas amarillas y ".$this->trojas." tarjeta roja";
+			return $mostrar;
+		}
+
 	}
 
 	$cr7 = new Futbolista("Cristiano","Ronaldo","El bicho","Manchester United","Delantero",7);
-	echo "<br>Goles de ".$cr7->getNombre()." ".$cr7->getApellido()." en el presente torneo: ".$cr7->getGoles();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
 
-	echo "<br>Goles de ".$cr7->getNombre()." ".$cr7->getApellido()." en el presente torneo: ".$cr7->getGoles();
+	$cr7->anotarGol();
+	$cr7->anotarGol();
+	$cr7->anotarGol();
+	$cr7->anotarGol();
+	$cr7->amonestar();
+	$cr7->anotarGol();
+	$cr7->anotarGol();
+	$cr7->amonestar();
+
+	echo $cr7->imprimirDatos();
 
 
 /*	:::::: Video 220: CLASES, ATRIBUTOS Y METODOS ::::::::::: 
