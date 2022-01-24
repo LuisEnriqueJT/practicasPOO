@@ -113,71 +113,21 @@
 			$this->goles++; 
 		}
 
-		public function imprimirDatos(){
-			$mostrar = "<br><br>:::::Datos del partido:::::::<br>";
-			$mostrar.= "<strong> Jugador: </strong>".$this->nombre." ".$this->apellido;
-			$mostrar.=" #".$this->dorsal;
-			$mostrar.="<br> '".$this->apodo."'";
-			$mostrar.="<br><strong>Posición: </strong>".$this->posicion;
-			$mostrar.="<br>Termina el partido con ".$this->goles." goles<br>";
-			$mostrar.=$this->tamarillas." tarjetas amarillas y ".$this->trojas." tarjeta roja";
+		public function imprimirDatos($miObjeto){
+			if (is_object($miObjeto)) {
+				$mostrar = "<br><br>:::::Datos del partido:::::::<br>";
+				$mostrar.= "<strong> Jugador: </strong>".$miObjeto->nombre." ".$miObjeto->apellido;
+				$mostrar.=" #".$miObjeto->dorsal;
+				$mostrar.="<br> '".$miObjeto->apodo."'";
+				$mostrar.="<br><strong>Posición: </strong>".$miObjeto->posicion;
+				$mostrar.="<br>Termina el partido con ".$miObjeto->goles." goles<br>";
+				$mostrar.=$miObjeto->tamarillas." tarjetas amarillas y ".$miObjeto->trojas." tarjeta roja";
+			}else{
+				$mostrar = "Tú dato no es de tipo Objeto...";
+			}
 			return $mostrar;
 		}
 
 	}
 
-	$cr7 = new Futbolista("Cristiano","Ronaldo","El bicho","Manchester United","Delantero",7);
-
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->amonestar();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->amonestar();
-
-	echo $cr7->imprimirDatos();
-
-
-/*	:::::: Video 220: CLASES, ATRIBUTOS Y METODOS ::::::::::: 
-	$cr7 = new Futbolista();
-	$cr7->setNombre("Cristiano");
-	$cr7->setApellido("Ronaldo");
-	$cr7->setApodo("El bicho");
-	$cr7->setEquipo("Man United");
-	$cr7->setPosicion("Delantero");
-	$cr7->setDorsal(7);
-
-	echo "Goles de ".$cr7->getNombre()." ".$cr7->getApellido()." en el presente torneo: ".$cr7->getGoles();	
-
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-	$cr7->anotarGol();
-
-	echo "<br>"; 
-	echo "Goles de ".$cr7->getNombre()." ".$cr7->getApellido()." en el presente torneo: ".$cr7->getGoles();
-
-
-	$lm10 = new Futbolista();
-	$lm10->setNombre("Lionel");
-	$lm10->setApellido("Messi");
-	$lm10->setApodo("La pulga");
-	$lm10->setPosicion("Mediocampista");
-	$lm10->setEquipo("PSG");
-	$lm10->setDorsal(30);
-
-	echo "<br>";
-	echo "Goles de ".$lm10->getNombre()." ".$lm10->getApellido()." en el presente torneo: ".$lm10->getGoles();	
-
-	for ($i=0; $i <9 ; $i++) { 
-		$lm10->anotarGol();
-	}
-	
-	echo "Goles de ".$lm10->getNombre()." ".$lm10->getApellido()." en el presente torneo: ".$lm10->getGoles();
-
-	var_dump($cr7); 
-*/
 ?>
