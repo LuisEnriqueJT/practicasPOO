@@ -1,14 +1,14 @@
 <?php
 	class Futbolista{
-		public $nombre;
-		public $apellido;
-		public $apodo;
-		public $equipo;
-		public $posicion;
-		public $dorsal;
-		public $goles;
-		public $tamarillas;
-		public $trojas;
+		private $nombre;
+		private $apellido;
+		private $apodo;
+		private $equipo;
+		private $posicion;
+		private $dorsal;
+		protected $goles;
+		protected $tamarillas;
+		protected $trojas;
 
 		//Constructor: 
 		public function __construct($nombre, $apellido, $apodo, $equipo, $posicion, $dorsal){
@@ -21,7 +21,7 @@
 			$this->goles = 0;
 			$this->tamarillas=0;
 			$this->trojas=0;
-		}
+		} 
 
 		public function setNombre($nombre){
 			$this->nombre = $nombre;
