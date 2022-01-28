@@ -130,4 +130,16 @@
 
 	}
 
+	class Portero extends Futbolista{
+		private $atajadas;
+
+		public function getAtajadas(){
+			return $this->atajadas;
+		}
+
+		public function setAtajadas($atajadas){
+			$this->atajadas = $atajadas;
+		}
+	}
+
 ?>
