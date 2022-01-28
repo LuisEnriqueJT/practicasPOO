@@ -113,18 +113,13 @@
 			$this->goles++; 
 		}
 
-		public function imprimirDatos($miObjeto){
-			if (is_object($miObjeto)) {
-				$mostrar = "<br><br>:::::Datos del partido:::::::<br>";
-				$mostrar.= "<strong> Jugador: </strong>".$miObjeto->nombre." ".$miObjeto->apellido;
-				$mostrar.=" #".$miObjeto->dorsal;
-				$mostrar.="<br> '".$miObjeto->apodo."'";
-				$mostrar.="<br><strong>Posición: </strong>".$miObjeto->posicion;
-				$mostrar.="<br>Termina el partido con ".$miObjeto->goles." goles<br>";
-				$mostrar.=$miObjeto->tamarillas." tarjetas amarillas y ".$miObjeto->trojas." tarjeta roja";
-			}else{
-				$mostrar = "Tú dato no es de tipo Objeto...";
-			}
+		public function imprimirDatos(Futbolista $miObjeto){
+			$mostrar = "<br><br>:::::Datos del partido:::::::<br>";
+			$mostrar.= "<strong> Jugador: </strong>".$miObjeto->nombre." ".$miObjeto->apellido;
+			$mostrar.=" #".$miObjeto->dorsal;
+			$mostrar.="<br> '".$miObjeto->apodo."'";
+			$mostrar.="<br><strong>Posición: </strong>".$miObjeto->posicion."<br>";
+			$mostrar.=$miObjeto->tamarillas." tarjetas amarillas y ".$miObjeto->trojas." tarjeta roja<br>";
 			return $mostrar;
 		}
 
@@ -139,6 +134,11 @@
 
 		public function setAtajadas($atajadas){
 			$this->atajadas = $atajadas;
+		}
+
+		public function atajar(){
+			echo '<br>Atajadon de '.$this->nombre." ".$this->apellido;
+			$this->atajadas++;
 		}
 	}
 
