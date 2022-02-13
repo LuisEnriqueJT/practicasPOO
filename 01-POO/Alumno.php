@@ -35,12 +35,4 @@
 
 	}
 
-	Alumno::setNombre("Luis Enrique");
-	Alumno::setApellido("Jimenez");
-	Alumno::setBoleta("2015602498");
-
-	echo Alumno::getNombre()."<br>";
-	echo Alumno::getApellido()."<br>";
-	echo Alumno::getBoleta()."<br>";
-	echo Alumno::ESCUELA;
 ?>

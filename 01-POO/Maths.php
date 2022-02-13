@@ -47,13 +47,4 @@
 
 	}
 
-	$op1 = new Suma(5,4);
-	$op1->resolver();
-	echo $op1->getResult();	
-	$op1 = new Resta(5,4);
-	$op1->resolver();
-	echo $op1->getResult();
-	$op1 = new Multi(5,4);
-	$op1->resolver();
-	echo $op1->getResult();
 ?>
