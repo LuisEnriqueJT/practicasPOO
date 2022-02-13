@@ -11,13 +11,7 @@
 		protected $trojas;
 
 		//Constructor: 
-		public function __construct($nombre, $apellido, $apodo, $equipo, $posicion, $dorsal){
-			$this->nombre = $nombre;
-			$this->apellido = $apellido;
-			$this->apodo = $apodo;
-			$this->equipo = $equipo;
-			$this->posicion = $posicion; 
-			$this->dorsal = $dorsal;
+		public function __construct(){
 			$this->goles = 0;
 			$this->tamarillas=0;
 			$this->trojas=0;
@@ -114,12 +108,16 @@
 		}
 
 		public function imprimirDatos(Futbolista $miObjeto){
-			$mostrar = "<br><br>:::::Datos del partido:::::::<br>";
+			$mostrar = ":::::Datos del jugador:::::::<br>";
 			$mostrar.= "<strong> Jugador: </strong>".$miObjeto->nombre." ".$miObjeto->apellido;
 			$mostrar.=" #".$miObjeto->dorsal;
-			$mostrar.="<br> '".$miObjeto->apodo."'";
-			$mostrar.="<br><strong>Posición: </strong>".$miObjeto->posicion."<br>";
-			$mostrar.=$miObjeto->tamarillas." tarjetas amarillas y ".$miObjeto->trojas." tarjeta roja<br>";
+			if(empty($miObjeto->apodo)){
+				$mostrar.="";
+			}else{
+				$mostrar.="<br> '".$miObjeto->apodo."'";				
+			}
+			$mostrar.="<br><strong>Posición: </strong>".$miObjeto->posicion."<br><br>";
+			//$mostrar.=$miObjeto->tamarillas." tarjetas amarillas y ".$miObjeto->trojas." tarjeta roja<br>";
 			return $mostrar;
 		}
 
